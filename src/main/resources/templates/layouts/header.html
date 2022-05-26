@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+	</head>
+	
+	<body>
+		<header id="header-principal" th:fragment="header">
+			<div class="container-fluid">
+				 <div class=" row page-header" >
+				 	<div class="col-md-8 text-center">
+				 	<br>
+				 		<h1>LOS 40 PRINCIPALES</h1>
+				 		<h4>Elige tu artista favorito</h4>
+				 		<p>Ques estas esperando? Registrate y participa de la votacion</p>
+				 	</div>
+				  	<div class="col-md-4">
+					   <img id="logo" src="/images/logo.jpg" alt="imagen presentación" title="logo de la pagina"/>
+					</div>
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				  <div class="container-fluid">
+				    <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				      <span class="navbar-toggler-icon"></span>
+				    </button>
+				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				        <li class="nav-item">
+				          <a class="nav-link active" aria-current="page" th:href="@{/candidato/listaCandidatos}">Candidatos</a>
+				        </li>
+				        <li class="nav-item">
+				          <a class="nav-link active" th:href="@{/beneficio/becas}">Votacion</a>
+				        </li>
+				         <li class="nav-item">
+				          <a class="nav-link active" th:href="@{/beneficio/becas}">Usuarios</a>
+				        </li>
+				      </ul>
+				      <form class="d-flex">
+				        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+				        <button class="btn btn-outline-success" type="submit">Buscar</button>
+				      </form>
+				    </div>
+  </div>
+</nav>
+			</div> 
+		</header>
+		
+		<script th:href="@{/webjars/jquery/jquery.min.js}" type="text/javascript"></script>
+		<script th:href="@{/webjars/popper.js/umd/popper.min.js}" type="text/javascript"></script>
+		<script th:href="@{/webjars/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+	</body>
+</html>

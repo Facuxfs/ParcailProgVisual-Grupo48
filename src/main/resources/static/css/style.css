@@ -1,0 +1,19 @@
+header{
+	background: black;
+}
+
+h1{
+	font-family:monospace;
+	color: white;
+	text-align: left;
+}
+h4{
+	color:white;
+	font-family:monospace;
+	text-align: left;
+}
+p{
+	color:white;
+	font-family:inherit;
+	text-align: left;
+}
