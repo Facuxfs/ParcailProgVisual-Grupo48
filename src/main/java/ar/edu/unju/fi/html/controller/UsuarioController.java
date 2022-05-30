@@ -50,20 +50,24 @@ public class UsuarioController {
 		@PostMapping("/guardar")
 		public ModelAndView getListaUsuarioPage(@Validated @ModelAttribute("usuario")Usuario usuario,
 				BindingResult bindingResult) {
-			
 			if(bindingResult.hasErrors()) {
-				ModelAndView mav = new ModelAndView("nuevocandidato");
+				ModelAndView mav = new ModelAndView("nuevousuario");
 				mav.addObject("candidato", usuarioservice.getUsuario());
 				return mav;
 			}
-			ModelAndView mav = new ModelAndView("redirect:/usuario/listausuarios");
 			
-		
+			if(usuarioservice.buscarUsuario(usuario.getDni()).getDni()==usuario.getDni()) {
+				ModelAndView mav = new ModelAndView("usuarioexiste");
+				return mav;
+			}
+			
+			ModelAndView mav = new ModelAndView("redirect:/usuario/listausuarios");
 			if(usuarioservice.guardarUsuario(usuario)) {
 				//LOGGER.info("Se agregó un objeto al arrayList de alumnos");
 			}
 			return mav;
 		}
+		
 		
 		@GetMapping("/eliminar/{dni}")
 		public ModelAndView getEliminarUsuarioPage(@PathVariable(value="dni")int dni) {
@@ -104,14 +108,13 @@ public class UsuarioController {
 			Usuario usuario = usuarioservice.buscarUsuario(dni);
 			mav.addObject("candidatos",candidatoservice.getListaCandidatos().getListaCandidatos());
 			mav.addObject(usuario);
-			if (usuario.getVotos()==3) {
-				ModelAndView mave = new ModelAndView("editarusuario");
+			if (usuario.getVotos()==4) {
+				ModelAndView mave = new ModelAndView("votonoregistrado");
 				mav.addObject("usuario", usuario);
 				return mave;
+			}else {
+				usuarioservice.realizarVotoUsuario(usuario);
 			}
-			usuarioservice.realizarVotoUsuario(usuario);
-			
-			System.out.println(mav.toString());
 			return mav;
 		}
 		

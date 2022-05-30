@@ -52,7 +52,15 @@ public class CandidatoController {
 			ModelAndView mav = new ModelAndView("nuevocandidato");
 			mav.addObject("candidato", candidatoservice.getCandidato());
 			return mav;
+		}		
+		
+		if(candidatoservice.buscarCandidato(candidato.getCodigo()).getCodigo()==candidato.getCodigo()) {
+			ModelAndView mav = new ModelAndView("usuarioexiste");
+			return mav;
 		}
+		
+		
+		
 		ModelAndView mav = new ModelAndView("redirect:/candidato/listaCandidatos");
 		
 	

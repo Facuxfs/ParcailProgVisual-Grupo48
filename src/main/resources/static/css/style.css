@@ -17,3 +17,6 @@ p{
 	font-family:inherit;
 	text-align: left;
 }
+aside{
+	position: left;
+}

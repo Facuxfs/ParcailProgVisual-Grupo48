@@ -21,6 +21,7 @@
 							<th>DNI</th>
 							<th>NOMBRE</th>
 							<th>EMAIL</th>
+							<th>EDAD</th>
 							<th>CONTADOR DE VOTOS</th>
 							
 						</tr>	
@@ -28,6 +29,7 @@
 							<td th:text="${usuario.dni}"></td>
 							<td th:text="${usuario.nombre}"></td>
 							<td th:text="${usuario.email}"></td>
+							<td th:text="${usuario.calcularEdad}"></td>
 							<td th:text="${usuario.votos}"></td>
 							<td>
 							<a  th:href="@{/usuario/votar/}+${usuario.dni}" id="votarUsuario" class="btn btn-success">Votar</a>
