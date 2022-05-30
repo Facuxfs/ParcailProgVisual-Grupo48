@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.html.model.Candidato;
 import ar.edu.unju.fi.html.model.Usuario;
 import ar.edu.unju.fi.html.servicee.IUsuarioService;
 import ar.edu.unju.fi.html.util.listaUsuarios;
@@ -75,6 +76,15 @@ public class IUsuarioImp implements IUsuarioService {
 			}
 		}
 
+	}
+
+	@Override
+	public boolean existeUsuario(Usuario usuario) {
+		for(Usuario cand : listausuarios.getListaUsuarios()) {
+			if(cand.getDni()==usuario.getDni())
+				return true;
+		}
+		return false;
 	}
 }
 

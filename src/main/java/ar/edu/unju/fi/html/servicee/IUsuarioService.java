@@ -7,6 +7,7 @@ public interface IUsuarioService {
 	
 	public Usuario getUsuario();
 	public boolean guardarUsuario(Usuario usuario);
+	public boolean existeUsuario(Usuario usuario);
 	public void modificarUsuario(Usuario usuario);
 	public void eliminarUsuario(int dni);
 	public listaUsuarios getListaUsuarios();

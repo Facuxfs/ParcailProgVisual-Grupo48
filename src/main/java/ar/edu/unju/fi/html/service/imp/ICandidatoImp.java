@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.html.service.imp;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,4 +70,25 @@ public class ICandidatoImp implements ICandidatosService {
 		candidato.setCantidadDeVotos(candidato.getCantidadDeVotos()+1);
 	}
 
-}
+	@Override
+	public float calcularPorcentaje(Candidato candidato) {
+		
+			float resultado = (float) 0.0;
+			for(Candidato cand : listacandidatos.getListaCandidatos()) {
+				resultado = resultado + cand.getCantidadDeVotos();
+			}
+			
+			return ((candidato.getCantidadDeVotos()*100)/resultado);
+		}
+
+	@Override
+	public boolean existeCandidato(Candidato candidato) {
+		for(Candidato cand : listacandidatos.getListaCandidatos()) {
+			if(cand.getCodigo()==candidato.getCodigo())
+				return true;
+		}
+		return false;
+	}
+	}
+
+

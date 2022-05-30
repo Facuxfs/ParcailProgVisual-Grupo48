@@ -2,6 +2,7 @@ package ar.edu.unju.fi.html.util;
 
 import java.util.ArrayList;
 
+
 import org.springframework.stereotype.Component;
 
 import ar.edu.unju.fi.html.model.Candidato;
@@ -24,6 +25,8 @@ public class listaCandidatos {
 		listaCandidatos.add(unCandidato3);
 		listaCandidatos.add(unCandidato4);
 	}
+	
+	
 
 	public ArrayList<Candidato> getListaCandidatos() {
 		return listaCandidatos;
@@ -33,5 +36,12 @@ public class listaCandidatos {
 		this.listaCandidatos = listaCandidatos;
 	}
 	
-	
+	public float calcularPorcentaje (ArrayList<Candidato> listaCandidatos, Candidato candidato) {
+		float resultado = (float) 0.0;
+		for(Candidato cand : listaCandidatos) {
+			resultado = resultado + cand.getCantidadDeVotos();
+		}
+		
+		return ((candidato.getCantidadDeVotos()*100)/resultado);
+	}
 }

@@ -54,19 +54,15 @@ public class CandidatoController {
 			return mav;
 		}		
 		
-		if(candidatoservice.buscarCandidato(candidato.getCodigo()).getCodigo()==candidato.getCodigo()) {
+		else if(candidatoservice.existeCandidato(candidato)==true) {
 			ModelAndView mav = new ModelAndView("usuarioexiste");
 			return mav;
 		}
 		
-		
-		
-		ModelAndView mav = new ModelAndView("redirect:/candidato/listaCandidatos");
-		
-	
-		if(candidatoservice.guardarCandidato(candidato)) {
+		ModelAndView mav = new ModelAndView("artistaagregado");
+		candidatoservice.guardarCandidato(candidato);
 			//LOGGER.info("Se agregó un objeto al arrayList de alumnos");
-		}
+		
 		return mav;
 	}
 	
@@ -108,10 +104,8 @@ public class CandidatoController {
 	
 	@GetMapping("/votar/{codigo}")
 	public ModelAndView guardarVotoUsuario(@PathVariable(value="codigo")int codigo){
-		ModelAndView mav = new ModelAndView("votoregistrado");
+		ModelAndView mav = new ModelAndView("votonoregistrado");
 		candidatoservice.contarVotoCandidato(candidatoservice.buscarCandidato(codigo));
-
-		System.out.println("aca va bien");
 		return mav;
 	}
 }
