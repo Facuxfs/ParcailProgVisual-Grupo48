@@ -63,4 +63,10 @@ public class ICandidatoImp implements ICandidatosService {
 		return candidato.get();
 	}
 
+	@Override
+	public void contarVotoCandidato(Candidato candidato) {
+		// TODO Auto-generated method stub
+		candidato.setCantidadDeVotos(candidato.getCantidadDeVotos()+1);
+	}
+
 }

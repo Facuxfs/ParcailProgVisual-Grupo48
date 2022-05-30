@@ -2,8 +2,10 @@ package ar.edu.unju.fi.html.model;
 
 import java.time.LocalDate;
 
+
 import java.time.temporal.ChronoUnit;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 
@@ -14,6 +16,7 @@ public class Usuario {
 	private String email;
 	private int dni;
 	private int votos;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDenacimiento;
 
 	public String getNombre() {
@@ -63,6 +66,17 @@ public class Usuario {
 		this.fechaDenacimiento = fechaDenacimiento;
 	}
 
+	
+	
+	public Usuario(String nombre, String email, int dni, int votos, LocalDate fechaDenacimiento) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.dni = dni;
+		this.votos = votos;
+		this.fechaDenacimiento = fechaDenacimiento;
+	}
+
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -79,7 +93,7 @@ public class Usuario {
 	}
 
 	public void setVotos(int votos) {
-		this.votos = 0;
+		this.votos = votos;
 	}
 
 	

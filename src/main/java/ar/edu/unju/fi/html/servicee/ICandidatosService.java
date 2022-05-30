@@ -13,5 +13,6 @@ public interface ICandidatosService {
 	public void eliminarCandidato(int codigo);
 	public listaCandidatos getListaCandidatos();
 	public Candidato buscarCandidato(int codigo);
+	public void contarVotoCandidato(Candidato candidato);
 
 }
